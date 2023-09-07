@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    gap: 80px;
+}
+
+.category {
+    margin-bottom: 40px;
+}
+
+.list {
+    display: grid;
+    gap: 24px;
+}
