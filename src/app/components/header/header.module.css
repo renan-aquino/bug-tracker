@@ -1,0 +1,29 @@
+.header_tag {
+    height: 80px;
+    width: 100%;
+    position: fixed;
+}
+
+.container {
+    height: 100%;
+    margin-inline: auto;
+    padding: 0px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+
+.logo {
+    font-size: 24px;
+}
+
+.logo span {
+    color: var(--clr-accent);
+}
