@@ -1,5 +1,5 @@
-import { DefaultProviders } from '@/components/default-providers'
-import './globals.css'
+// import './globals.css'
+import Header from '@/components/header/header'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
@@ -16,12 +16,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <DefaultProviders>
-          {children}
-        </DefaultProviders>
-      </body>
-    </html>
+    <>
+        <Header/>
+        {children}
+    </>
   )
 }

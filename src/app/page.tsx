@@ -1,13 +1,11 @@
-import Image from 'next/image'
-import styles from './page.module.css'
-import { Navbar } from '@/components/navbar/navbar'
-import { TicketGrid } from '@/components/ticket-grid/ticket-grid'
+import s from './page.module.css'
+import { LoginForm } from "@/components/login-form/login-form";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <Navbar/>
-      <TicketGrid/>
+    <main className={s.container}>
+      <h1 className={s.logo}><span>Bug</span> Tracker</h1>
+      <LoginForm/>
     </main>
   )
 }
