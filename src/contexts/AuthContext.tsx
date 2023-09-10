@@ -3,8 +3,8 @@
 import { useLogin } from "@/hooks/useLogin";
 import { api } from "@/services/api";
 import { useRouter }  from "next/navigation";
-import { setCookie } from "nookies";
-import { createContext, useState } from "react"
+import { parseCookies, setCookie } from "nookies";
+import { createContext, useState, useEffect } from "react"
 
 type SignInData = {
     login: string;
@@ -27,7 +27,9 @@ export function AuthProvider({ children }){
 
     const [user, setUser] = useState<User | null>(null)
     const router = useRouter()
-    const isAuthenticated = !!user
+    let isAuthenticated = false
+    const { 'authapi.token': token } = parseCookies()
+
 
     const signIn = async ({login, password }) => {
         const { token, user } = await useLogin( { login, password } )
@@ -36,13 +38,19 @@ export function AuthProvider({ children }){
             maxAge: 60 * 60 * 1 // 1 hour
         } )
 
-
         api.defaults.headers['Authorization'] = `Bearer ${token}`
 
         setUser(user)
+        console.log(user)
     
         router.push('/tickets')    
     }
+
+    useEffect(() => {
+        if(!token) {
+            router.push('/')    
+        } 
+    },[])
 
     return (
         <AuthContext.Provider value={{isAuthenticated, user, signIn}}>
