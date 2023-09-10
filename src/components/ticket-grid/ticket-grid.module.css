@@ -1,13 +1,11 @@
 .container {
-    display: flex;
-    gap: 80px;
+    padding-bottom: 20px;
 }
 
-.category {
-    margin-bottom: 40px;
-}
 
 .list {
     display: grid;
-    gap: 24px;
+    /* grid-template-columns: repeat(4, 360px); */
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 22px;
 }
