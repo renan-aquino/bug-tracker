@@ -1,0 +1,12 @@
+.container {
+    padding-block: 30px;
+}
+
+.back_button {
+    margin-bottom: 20px;
+}
+
+.ticket_info{
+    display: flex;
+    gap: 40px;
+}
