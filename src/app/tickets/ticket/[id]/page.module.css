@@ -1,4 +1,10 @@
 .container {
     padding-inline: 15px;
     margin-top: 80px;
+    padding-bottom: 15px;
+}
+
+.message_list {
+    display: grid;
+    gap: 40px;
 }
