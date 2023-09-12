@@ -3,6 +3,7 @@
 import s from './page.module.css'
 
 import { Navbar } from "@/components/navbar/navbar";
+import { TicketMessageInput } from '@/components/ticket-message-input.tsx/ticket-message-input';
 import { TicketMessage } from '@/components/ticket-message/ticket-message';
 import { TicketTitle } from '@/components/ticket-title/ticket-title';
 import { useMessages } from '@/hooks/useMessages';
@@ -22,12 +23,11 @@ export default function Ticket({ params : { id }}: { params: { id: string } }){
     return(
         <main className={s.container}>
             <TicketTitle/>
-
-            <div>
-                {data?.map((message) => <TicketMessage text={message.text}/>)}
+            <TicketMessageInput/>
+            <div className={s.message_list}>
+                {data?.map((message) => <TicketMessage text={message.text} key={message.id}/>)}
             </div>
 
-            <h1>Hi</h1>
         </main>
     )
 }
