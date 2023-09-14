@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import s from './ticket-message-input.module.css'
+import s from './ticket-message-form.module.css'
 import { MessageData, useMessagesMutate } from '@/hooks/useMessagesMutate'
 
 // interface inputProps {
@@ -7,7 +7,7 @@ import { MessageData, useMessagesMutate } from '@/hooks/useMessagesMutate'
 //     updateValue(value: string) : void
 // }
 
-export function TicketMessageInput(){
+export function TicketMessageForm(){
     const [ text, setText ] = useState(null)
     // const [ user_id, setUserId ] = useState(null)
     const { mutate } = useMessagesMutate()
