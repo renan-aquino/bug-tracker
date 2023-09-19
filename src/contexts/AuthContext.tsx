@@ -29,12 +29,17 @@ export function AuthProvider({ children }){
     const router = useRouter()
     let isAuthenticated = false
     const { 'authapi.token': token } = parseCookies()
+    // const { 'name': string } = parseCookies()
 
 
     const signIn = async ({login, password }) => {
         const { token, user } = await useLogin( { login, password } )
 
         setCookie(undefined, 'authapi.token', token, {
+            maxAge: 60 * 60 * 1 // 1 hour
+        } )
+
+        setCookie(undefined, 'name', user.name, {
             maxAge: 60 * 60 * 1 // 1 hour
         } )
 

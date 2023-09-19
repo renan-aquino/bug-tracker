@@ -13,11 +13,12 @@ export function TicketGrid(){
         router.push('/tickets/ticket/' + id)
     }
 
+
     return (
         <div className={s.container}>
             <ul className={s.list}>
                 {data?.map(ticket =>
-                    <TicketCard title={ticket.title} date={ticket.created_at} handleClick={() => handleNavigate(ticket.id)}  key={ticket.id}/>
+                    <TicketCard title={ticket.title} date={new Date(ticket.created_at).toLocaleDateString()} handleClick={() => handleNavigate(ticket.id)}  key={ticket.id}/>
                 )}
             </ul>
         </div>
