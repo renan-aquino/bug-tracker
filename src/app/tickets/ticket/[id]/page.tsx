@@ -26,7 +26,7 @@ export default function Ticket({ params : { id }}: { params: { id: string } }){
     return(
         <main className={s.container}>
             <TicketTitle id={data?.id} date={data?.created_at} title={data?.title}/>
-            <TicketMessageForm/>
+            <TicketMessageForm ticketId={id}/>
             <TicketMessageList id={id}/>
         </main>
     )

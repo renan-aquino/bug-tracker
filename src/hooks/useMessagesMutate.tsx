@@ -7,8 +7,7 @@ const API_URL = 'http://localhost:8080/message'
 
 export interface MessageData {
     text: string,
-    user_id?: number,
-    ticket_id?: number
+    ticketId: number
 }
 
 const postData = async (data : MessageData) => {
