@@ -4,7 +4,7 @@ import { useLogin } from "@/hooks/useLogin";
 import { api } from "@/services/api";
 import { useRouter }  from "next/navigation";
 import { parseCookies, setCookie } from "nookies";
-import { createContext, useState, useEffect } from "react"
+import { createContext, useState, useEffect, Dispatch, SetStateAction } from "react"
 
 type SignInData = {
     login: string;
@@ -18,7 +18,8 @@ interface User {
 type AuthContextType = {
     isAuthenticated: boolean;
     user: User;
-    signIn: (data: SignInData) => Promise<void>
+    signIn: (data: SignInData) => Promise<void>;
+    setAuthToken : Dispatch<SetStateAction<string>>
 }
 
 export const AuthContext = createContext({} as AuthContextType)
@@ -26,6 +27,7 @@ export const AuthContext = createContext({} as AuthContextType)
 export function AuthProvider({ children }){
 
     const [user, setUser] = useState<User | null>(null)
+    const [authToken, setAuthToken] = useState<string | null>(null)
     const router = useRouter()
     let isAuthenticated = false
     const { 'authapi.token': token } = parseCookies()
@@ -38,6 +40,7 @@ export function AuthProvider({ children }){
         setCookie(undefined, 'authapi.token', token, {
             maxAge: 60 * 60 * 1 // 1 hour
         } )
+        setAuthToken(token)
 
         setCookie(undefined, 'name', user.name, {
             maxAge: 60 * 60 * 1 // 1 hour
@@ -55,10 +58,10 @@ export function AuthProvider({ children }){
         if(!token) {
             router.push('/')    
         } 
-    },[])
+    },[authToken])
 
     return (
-        <AuthContext.Provider value={{isAuthenticated, user, signIn}}>
+        <AuthContext.Provider value={{isAuthenticated, user, signIn, setAuthToken}}>
             {children}
         </AuthContext.Provider>
     )
