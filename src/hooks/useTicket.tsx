@@ -1,15 +1,9 @@
 
 import { useQuery } from "@tanstack/react-query";
-import axios, { AxiosPromise } from "axios";
+import axios from "axios";
 
 const API_URL = 'http://localhost:8080/ticket/'
 
-interface Ticket {
-    id: number,
-    title: string,
-    created_at: string,
-    status: string
-}
 
 const fetcher = async (id: string) => {
     const token =  await fetch('/login', { method: 'GET'})

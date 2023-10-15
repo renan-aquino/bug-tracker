@@ -7,12 +7,6 @@ import { useContext } from "react"
 
 const API_URL = 'http://localhost:8080/ticket'
 
-interface Ticket {
-    id: number,
-    title: string,
-    created_at: string,
-    status: string
-}
 
 const fetcher = async (status: string) => {
     const token =  await fetch('/login', { method: 'GET'})

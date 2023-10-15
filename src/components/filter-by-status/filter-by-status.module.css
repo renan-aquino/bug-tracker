@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  gap: 30px;
+}
+
+.filterItem {
+  border-bottom: none;
+  cursor: pointer;
+}
+  
+.filterItem.selected {
+  border-bottom: 4px solid var(--clr-accent);
+}
+  

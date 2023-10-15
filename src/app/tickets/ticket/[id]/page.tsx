@@ -2,15 +2,12 @@
 
 import s from './page.module.css'
 
-import { Navbar } from "@/components/navbar/navbar";
 import { TicketMessageForm } from '@/components/ticket-message-form.tsx/ticket-message-form';
 import { TicketMessageList } from '@/components/ticket-message-list/ticket-message-list';
-import { TicketMessage } from '@/components/ticket-message/ticket-message';
 import { TicketTitle } from '@/components/ticket-title/ticket-title';
-import { useMessages } from '@/hooks/useMessages';
 import { useTicket } from '@/hooks/useTicket';
-import { api } from "@/services/api";
-import axios from "axios";
+import { useTicketStatus } from '@/hooks/useTicketStatus';
+
 
 
 interface Ticket {
@@ -19,14 +16,21 @@ interface Ticket {
     created_at: string
 }
 
+
 export default function Ticket({ params : { id }}: { params: { id: string } }){
     const { data } = useTicket(id)
-    // const { data } = useMessages(id)
+    const { mutate } = useTicketStatus(id)
 
+
+    const submit = () => {
+        mutate()
+    }
+    
     return(
         <main className={s.container}>
-            <TicketTitle id={data?.id} date={data?.created_at} title={data?.title}/>
-            <TicketMessageForm ticketId={id}/>
+            <TicketTitle id={data?.id} date={data?.created_at} title={data?.title} status={data?.status}/>
+            <button onClick={submit}>Change status</button>
+            {data?.status == "OPEN" && <TicketMessageForm ticketId={id}/>}
             <TicketMessageList id={id}/>
         </main>
     )

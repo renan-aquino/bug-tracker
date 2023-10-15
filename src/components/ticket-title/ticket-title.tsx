@@ -4,7 +4,8 @@ import s from './ticket-title.module.css'
 interface TicketProps {
     id: string,
     title: string,
-    date: string
+    date: string,
+    status: string
 
 }
 
@@ -15,7 +16,7 @@ export function TicketTitle(props: TicketProps){
             <div className={s.ticket_info}>
                 <p>Ticket #{props.id}</p>
                 <p>{props.date}</p>
-                <p>Closed</p>
+                <p>{props.status}</p>
             </div>
             <h4>{props.title}</h4>
         
