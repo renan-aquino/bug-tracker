@@ -1,19 +1,17 @@
 import s from './ticket-card.module.css'
 
 interface CardProps {
+    id: number,
     title: string,
     date: string,
-    handleClick: () => void
 }
 
 export function TicketCard(props: CardProps){
-
-    
  
     return(
-        <div className={s.container} onClick={props.handleClick}>
+        <a href={'http://localhost:3000/tickets/ticket/' + props.id} className={s.container}>
             <h4>{props.title}</h4>
             <p>{props.date}</p>
-        </div>
+        </a>
     )
 }

@@ -1,22 +1,26 @@
 
-import { api } from "@/services/api";
 import { useQuery } from "@tanstack/react-query";
-import { AxiosPromise } from "axios";
+import axios, { AxiosPromise } from "axios";
+
+const API_URL = 'http://localhost:8080/ticket/'
 
 interface Ticket {
     id: number,
     title: string,
-    created_at: string
+    created_at: string,
+    status: string
 }
 
 const fetcher = async (id: string) => {
-    const response = await api.get('http://localhost:8080/ticket/' + id)
+    const token =  await fetch('/login', { method: 'GET'})
+    const header = token.headers.get('Authorization')
+    const response = await axios.get(API_URL + id, { headers: { Authorization: header}})
 
     return response
 }
 
 export function useTicket(id: string){
-
+    
     const { data } = useQuery({
         queryFn: () => fetcher(id),
         queryKey: ['ticket']

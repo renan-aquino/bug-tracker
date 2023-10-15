@@ -5,3 +5,12 @@
     padding-bottom: 80px;
 }
 
+.a_button {
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--clr-accent);
+    color: white;
+    font-size: 14px;
+}

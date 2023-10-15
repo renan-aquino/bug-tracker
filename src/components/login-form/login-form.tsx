@@ -12,7 +12,11 @@ export function LoginForm(){
 
 
     const handleSignIn = async (data) => {
-        await signIn(data)
+       const res = await signIn(data)
+       if(res.status == 200) {
+        window.location.href='http://localhost:3000/tickets'
+       }
+        
 
     }
 

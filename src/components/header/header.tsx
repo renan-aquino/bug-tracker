@@ -3,14 +3,12 @@
 import { useRouter } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import s from './header.module.css'
-import { useContext } from 'react'
-import { AuthContext } from '@/contexts/AuthContext'
-import { destroyCookie, parseCookies } from 'nookies'
+import { parseCookies } from 'nookies'
+
 
 export default function Header(){
     const router = useRouter()
     const { name } = parseCookies()
-    const { setAuthToken } = useContext(AuthContext)
 
     const [hydrated, setHydrated] = useState(false);
 	useEffect(() => {
@@ -24,13 +22,11 @@ export default function Header(){
         router.push('/tickets')
     }
 
-    const logout = () => {
-        console.log('hi')
-        destroyCookie(undefined, 'authapi.token')
-        destroyCookie(undefined, 'name')
-        setAuthToken(null)
+    const handleLogout = async () => {
+        await fetch('/logout')
+        window.location.href='/'
     }
-    
+
     return (
         <header className={s.header_tag}>
             <div className={s.container}>
@@ -39,7 +35,7 @@ export default function Header(){
                 <div className={s.login}>
                     {name && <p>{name}</p>}
                     <p>|</p>
-                    <a onClick={logout}>Log out</a>
+                    <a onClick={handleLogout}>Log out</a>
                 </div>
             </div>
 

@@ -1,7 +1,7 @@
 'use client'
 
-import { api } from "@/services/api"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
+import axios from "axios"
 
 const API_URL = 'http://localhost:8080/message'
 
@@ -11,7 +11,9 @@ export interface MessageData {
 }
 
 const postData = async (data : MessageData) => {
-    const response = await api.post(API_URL, data)
+    const token =  await fetch('/login', { method: 'GET'})
+    const header = token.headers.get('Authorization')
+    const response = await axios.post(API_URL + data, { headers: { Authorization: header}})
 
     return response
 }
