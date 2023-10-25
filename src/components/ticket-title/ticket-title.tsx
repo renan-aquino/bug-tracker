@@ -18,7 +18,7 @@ export function TicketTitle(props: TicketProps){
                 <p>{props.date}</p>
                 <p>{props.status}</p>
             </div>
-            <h4>{props.title}</h4>
+            <h3>{props.title}</h3>
         
         </div>
     )
