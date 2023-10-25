@@ -20,9 +20,11 @@ export function useMessages(ticketId: string){
         queryFn: () => fetcher(ticketId),
         queryKey: ['messages']
     })
-    
+
+    const orderedData = data?.data.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
+
     return {
-        data: data?.data
+        data: orderedData
     }
 
 }
