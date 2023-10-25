@@ -23,7 +23,7 @@ export function LoginForm(){
     return (
         <form className={s.login_form} onSubmit={handleSubmit(handleSignIn)}>
             <input {...register('login')} type="text" placeholder="username"/>
-            <input {...register('password')} type="text" placeholder="password" />
+            <input {...register('password')} type="password" placeholder="password" />
             <button value='submit'>Submit</button>
         </form>
     )

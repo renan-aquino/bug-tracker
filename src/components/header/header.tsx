@@ -28,8 +28,8 @@ export default function Header(){
     }
 
     return (
-        <header className={s.header_tag}>
-            <div className={s.container}>
+        <header className={s.container}>
+            {/* <div className={s.container}> */}
                 <a onClick={handleClick} className={s.logo}><span>Bug</span> Tracker</a>
                 
                 <div className={s.login}>
@@ -37,7 +37,7 @@ export default function Header(){
                     <p>|</p>
                     <a onClick={handleLogout}>Log out</a>
                 </div>
-            </div>
+            {/* </div> */}
 
         </header>
     )
