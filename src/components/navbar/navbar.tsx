@@ -11,7 +11,7 @@ export function Navbar(){
         <div className={s.container}>
             <h2>Tickets</h2>
             <FilterByStatus/>
-            <a href='http://localhost:3000/tickets/new' className={s.a_button}>Novo ticket</a>
+            <a href='http://localhost:3000/tickets/new' className={s.a_button}>New ticket</a>
         </div>
     )
 }
