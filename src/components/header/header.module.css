@@ -1,19 +1,23 @@
-.header_tag {
+/* .header_tag {
     height: 80px;
     width: 100%;
     position: fixed;
-}
+} */
 
 .container {
-    height: 100%;
-    margin-inline: auto;
+    height: 80px;
+    width: 100%;
+    background-color: #fafafa;
+    position: fixed;
+    /* height: 100%; */
+    /* margin-inline: auto; */
     padding: 0px 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.login {
+.login { 
     display: flex;
     justify-content: space-between;
     align-items: center;

@@ -1,0 +1,12 @@
+.container {
+    padding-inline: 15px;
+    margin-top: 110px;  
+}
+
+.container h2 {
+    margin-bottom: 40px;
+}
+
+.back_button {
+    margin-bottom: 20px;
+}

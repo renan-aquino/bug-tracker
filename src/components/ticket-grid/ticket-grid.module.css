@@ -5,7 +5,26 @@
 
 .list {
     display: grid;
-    /* grid-template-columns: repeat(4, 360px); */
-    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
+    /* grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); */
     gap: 22px;
+}
+
+
+@media (max-width: 1024px) {
+    .list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .list {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
