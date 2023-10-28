@@ -13,3 +13,14 @@
 .logo span {
     color: var(--clr-accent);
 }
+
+.register_link {
+    font-size: 14px;
+    color: #0000FF;
+}
+
+.register_link:hover {
+    color: #0066CC;
+    text-decoration: underline;
+}
+

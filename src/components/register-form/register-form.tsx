@@ -3,24 +3,29 @@
 import s from './register-form.module.css'
 import { useForm } from "react-hook-form"
 import { useRegister } from '@/hooks/useRegister'
+import { useRef } from 'react'
 
 
 export function RegisterForm(){
     const { register, handleSubmit } = useForm()
+    const nameRef = useRef(null)
+    const usernameRef = useRef(null)
+    const passwordRef = useRef(null)
 
 
     const handleSignUp = async (data) => {
-       const res = await useRegister(data)
-       if(res == 200) {
-        window.location.href='http://localhost:3000'
+        
+       if(usernameRef.current.value != '' || passwordRef.current.value != '' || nameRef.current.value != '') {
+        const res = await useRegister(data)
        }
+        window.location.href='http://localhost:3000'
     }
 
     return (
-        <form className={s.login_form} onSubmit={handleSubmit(handleSignUp)}>
-            <input {...register('name')} type="text" placeholder="name"/>
-            <input {...register('login')} type="text" placeholder="username"/>
-            <input {...register('password')} type="password" placeholder="password" />
+        <form className={s.register_form} onSubmit={handleSubmit(handleSignUp)}>
+            <input {...register('name')} ref={nameRef} type="text" placeholder="name"/>
+            <input {...register('login')} ref={usernameRef} type="text" placeholder="username"/>
+            <input {...register('password')} ref={passwordRef} type="password" placeholder="password" />
             {/* <input {...register('counterPassword')} type="password" placeholder="password" /> */}
             <button value='submit'>Submit</button>
         </form>
