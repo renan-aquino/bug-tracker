@@ -1,5 +1,5 @@
-import { cookies, headers } from 'next/headers'
-import { NextRequest, NextResponse } from 'next/server'
+import { cookies } from 'next/headers'
+import { NextRequest } from 'next/server'
  
 export async function GET(req: NextRequest) {
     const token = cookies().get('authapi.token')    
