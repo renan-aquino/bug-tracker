@@ -8,24 +8,11 @@ import { TicketTitle } from '@/components/ticket-title/ticket-title';
 import { useDeleteTicket } from '@/hooks/useDelete';
 import { useTicket } from '@/hooks/useTicket';
 import { useTicketStatus } from '@/hooks/useTicketStatus';
-import { fetchBlogPost } from '@/services/fetchTicket';
-import axios from 'axios';
-import { notFound } from 'next/navigation';
-import { useEffect } from 'react'
 
-
-
-interface Ticket {
-    id: number,
-    title: string,
-    created_at: string
-}
 
 interface ticketPageProps {
     ticketId : string
 }
-
-const API_URL = 'http://localhost:8080/ticket/'
 
 
 
@@ -34,34 +21,13 @@ export default function TicketPage({ ticketId }: ticketPageProps){
     const { mutate: mutateStatus} = useTicketStatus(ticketId)
     const { mutate: mutateDelete} = useDeleteTicket(ticketId)
     
-    // const fetcher = async (ticketId: string) => {
-    //     const token =  await fetch('http://localhost:3000//login', { method: 'GET'})
-    //     const header = token.headers.get('Authorization')
-    //     const response = await axios.get(API_URL + 49, { headers: { Authorization: header}})
-    
-    //     return response
-    // }
-
-    // useEffect(() => {
-        
-    //         let res = fetcher(ticketId)
-    //     // res.then(res => {  notFound() })
-    //         // notFound()
-        
-    //     // notFound()
-        
-    // }, [])
-    
-    
-    
-
     const submit = () => {
         mutateStatus()
     }
 
     const deleteTicket = () => {
         mutateDelete()
-        window.location.href='http://localhost:3000/tickets'
+        window.location.href='/tickets'
         
     }
     

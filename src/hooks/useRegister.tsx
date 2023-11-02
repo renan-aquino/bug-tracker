@@ -1,9 +1,5 @@
 import axios from "axios";
 
-
-const API_URL = 'http://localhost:8080/auth/register'
-
-
 type SignUpData = {
     name: string;
     login: string;
@@ -11,10 +7,9 @@ type SignUpData = {
 }
 
 
-
 export async function useRegister({ name, login, password } : SignUpData) {
     try {
-      const response = await axios.post(API_URL, {
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/auth/register`, {
         name,
         login,
         password

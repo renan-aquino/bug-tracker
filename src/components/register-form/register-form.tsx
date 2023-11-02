@@ -18,7 +18,7 @@ export function RegisterForm(){
        if(usernameRef.current.value != '' || passwordRef.current.value != '' || nameRef.current.value != '') {
         const res = await useRegister(data)
        }
-        window.location.href='http://localhost:3000'
+        window.location.href='/'
     }
 
     return (

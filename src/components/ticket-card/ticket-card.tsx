@@ -9,7 +9,7 @@ interface CardProps {
 export function TicketCard(props: CardProps){
  
     return(
-        <a href={'http://localhost:3000/tickets/ticket/' + props.id} className={s.container}>
+        <a href={'/tickets/ticket/' + props.id} className={s.container}>
             <h4>{props.title}</h4>
             <p>{props.date}</p>
         </a>

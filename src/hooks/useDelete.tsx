@@ -2,13 +2,10 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 
 
-const API_URL = 'http://localhost:8080/ticket/'
-
-
 const deleteTicket = async (id) => {
     const token =  await fetch('/login', { method: 'GET'})
     const header = token.headers.get('Authorization')
-    const response = await axios.delete(API_URL + id, { headers: { Authorization: header}})
+    const response = await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/ticket/${id}`, { headers: { Authorization: header}})
     return response
 }
 

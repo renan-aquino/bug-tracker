@@ -5,13 +5,11 @@ import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
 import { useContext } from "react"
 
-const API_URL = 'http://localhost:8080/ticket'
-
 
 const fetcher = async (status: string) => {
     const token =  await fetch('/login', { method: 'GET'})
     const header = token.headers.get('Authorization')
-    const response = await axios.get(API_URL + '/status/' + status, { headers: { Authorization: header}})
+    const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/ticket/status/${status}`, { headers: { Authorization: header}})
 
     return response
 }

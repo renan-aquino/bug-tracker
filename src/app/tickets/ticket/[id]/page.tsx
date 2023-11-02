@@ -29,27 +29,22 @@ import { notFound } from "next/navigation"
 
 
 export default async function Ticket({ params : { id }}: { params: { id: string } }){
-   
-    const token =  await fetch('http://localhost:3000/login', { method: 'GET'})
-    const header = token.headers.get('Authorization')
-    console.log(header)
 
-    const resa = await fetch('http://localhost:8080/ticket/' + id, { headers : {'Authorization' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJidWctdHJhY2tlci1BUEkiLCJzdWIiOiJyZW5hbi5hcXVpbm8ifQ.9EcpvgPQBSCbMg1zsaU0ruYIew3wDGj1_4aItOfglsc'}, cache: 'no-store'})
-    console.log(resa.status)
+    const ticketExists = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/ticket/check/${id}`, { cache: 'no-store'})
 
-    if(resa.status == 200) {
+    if(ticketExists?.status == 200) {
         return (
             <TicketPage ticketId={id.toString()}/>
         )
         } else {
             notFound()
         }
-    }
+    // }
 
     // console.log(ticket)
     // if(ticket.status != 200) {
     //     notFound()
-    // }
+    }
 
     // return (
     //     // <TicketPage ticketId={id2}/>

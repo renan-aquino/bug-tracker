@@ -3,13 +3,12 @@ import { useEffect, useState } from 'react';
 
 function UserNameFetcher({ userId }) {
   const [userName, setUserName] = useState(null);
-  const API_URL = 'http://localhost:8080/user/'
 
 
   const fetchUserName = async (user_id) => {
     const token =  await fetch('/login', { method: 'GET'})
     const headerx= token.headers.get('Authorization')
-    const response = await axios.get(API_URL + user_id, { headers: { Authorization: headerx.valueOf()}})
+    const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/user/${user_id}`, { headers: { Authorization: headerx.valueOf()}})
     return response.data.name
   }
 

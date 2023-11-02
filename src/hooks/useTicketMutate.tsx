@@ -20,7 +20,7 @@ export interface TicketResponseDTO {
 const postData = async (data : TicketRequestDTO) => {
     const token =  await fetch('/login', { method: 'GET'})
     const header = token.headers.get('Authorization')
-    const response = await axios.post(API_URL, data, { headers: { Authorization: header}})
+    const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/ticket`, data, { headers: { Authorization: header}})
 
     return response.data
 }

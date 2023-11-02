@@ -1,9 +1,5 @@
 import axios from "axios";
 
-
-const API_URL = 'http://localhost:8080/auth/login'
-
-
 type SignInData = {
     login: string;
     password: string;
@@ -17,7 +13,7 @@ interface AuthAPIResponse {
 
 export async function useLogin({ login, password } : SignInData) {
     try {
-      const response = await axios.post<AuthAPIResponse>(API_URL, {
+      const response = await axios.post<AuthAPIResponse>(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
         login,
         password
       });
