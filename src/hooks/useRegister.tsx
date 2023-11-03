@@ -14,7 +14,7 @@ export async function useRegister({ name, login, password } : SignUpData) {
         login,
         password
       });
-      return response.status
+      return response
       
     } catch (error) {
       console.log(error);
