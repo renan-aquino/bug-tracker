@@ -30,7 +30,7 @@ import { notFound } from "next/navigation"
 
 export default async function Ticket({ params : { id }}: { params: { id: string } }){
 
-    const ticketExists = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/ticket/check/${id}`, { cache: 'no-store'})
+    const ticketExists = await fetch(`${process.env.NEXT_PUBLIC_API_URL_SERVER}/ticket/check/${id}`, { cache: 'no-store'})
 
     if(ticketExists?.status == 200) {
         return (
