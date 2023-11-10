@@ -1,34 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Bug Tracker Web App
 
-First, run the development server:
+## Overview
 
-```bash
+This is the Next.js web app of a bug reporting platform, which organizes bug information in the form of tickets.
+
+The application consumes the [bug tracker api](https://github.com/renan-aquino/bug-tracker-api). You can also access the Docker Container repository that has everything you'll need by clicking [here](https://github.com/renan-aquino/bug-tracker-docker).
+
+## Features
+
+- Create tickets to describe bugs.  
+- Update your tickets with messages to report the progress.
+- Check closed tickets to retrieve solutions for recurring problems.
+- Create a different user for each member of your team.
+- Keep information safe with authentication and authorization.
+
+## Installation
+
+1. Clone the repository and go to its directory:
+
+2. Install dependencies:
+```shell
+npm install
+```
+3. Run the application:
+```shell
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies Used
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+-   **Next.js:** A React framework for building server-side rendered and statically generated web applications.
+    
+-   **React:** A JavaScript library for building user interfaces.
+    
+-   **CSS Modules:** Localized CSS styles for better component encapsulation.
 
-## Learn More
+-   **Axios:** A promise-based HTTP Client for node.js and the browser.
 
-To learn more about Next.js, take a look at the following resources:
+-   **Tanstack Query:** Data-fetching library for React based web applications.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+-   **React Hook Form:** Forms library for React Hooks.
+    
