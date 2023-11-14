@@ -11,3 +11,13 @@
     gap: 40px;
     margin-bottom: 10px;
 }
+
+.greenText {
+    font-weight: 500;
+    color: rgb(14, 199, 14);
+}
+
+.redText {
+    font-weight: 500;
+    color: #f14b4b;
+}
