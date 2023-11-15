@@ -33,7 +33,7 @@ export default function TicketPage({ ticketId }: ticketPageProps){
     
     return(
         <main className={s.container}>
-            <TicketTitle id={data?.id} date={new Date(data?.created_at).toLocaleDateString()} title={data?.title} status={data?.status}/>
+            <TicketTitle id={data?.id} date={new Date(data?.created_at).toLocaleDateString('en-us')} title={data?.title} status={data?.status}/>
             <div className={s.buttons}>
                 <button onClick={submit}>Change status</button>
                 <button className={s.delete_btn} onClick={deleteTicket}>Delete ticket</button>

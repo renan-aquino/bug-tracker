@@ -11,7 +11,7 @@ export function TicketGrid(){
         <div className={s.container}>
             <ul className={s.list}>
                 {data?.map(ticket =>
-                    <TicketCard  id={ticket?.id} title={ticket.title} date={new Date(ticket.created_at).toLocaleDateString()} key={ticket.id}/>
+                    <TicketCard  id={ticket?.id} title={ticket.title} date={new Date(ticket.created_at).toLocaleDateString('en-us')} key={ticket.id}/>
                 )}
             </ul>
         </div>

@@ -8,6 +8,6 @@ export function BackButton(){
     const router = useRouter()
 
     return (
-        <button className={s.back_button} onClick={() => router.push('/tickets')} ><GoBackIcon/>Voltar</button>
+        <button className={s.back_button} onClick={() => router.push('/tickets')} ><GoBackIcon/>Go back</button>
     )
 }
